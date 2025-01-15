@@ -54,3 +54,29 @@ Write a function that takes two lists of integers and returns a list of their in
 - Consider how you can efficiently find the intersection using data structures or built-in Python capabilities.
 - Aim to implement the solution with a time complexity of O(n) where n is the total number of elements in both lists combined."""
 
+def list_intersection(list1 : list, list2 : list) -> list:
+    set1 = set(list1)
+    set2 = set(list2)
+
+    final_list = []
+
+    for i in set1:
+        if i in set2:
+            final_list.append(i)
+    
+    return final_list
+
+list1 = [1, 2, 2, 1]
+list2 = [2, 2]
+
+print(list_intersection(list1, list2))
+
+list1 = [4, 9, 5]
+list2 = [9, 4, 9, 8, 4]
+
+print(list_intersection(list1, list2))
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+print(list_intersection(list1, list2))
