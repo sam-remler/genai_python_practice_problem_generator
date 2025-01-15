@@ -31,7 +31,7 @@ def get_line_by_keyword(filename, keyword):
 problem_sets = glob.glob("problem_set__*.py")
 existing_problems = []
 for ps in problem_sets:
-    topic = get_line_by_keyword(ps, "Title")
+    topic = get_line_by_keyword(ps, "Title").replace("Title", "").replace("*", "").replace("#", "").replace("'","")
     existing_problems.append(topic)
 
 
@@ -51,10 +51,8 @@ Easy: Suitable for beginners, involves basic programming concepts like loops, co
 Medium: Requires knowledge of standard algorithms, intermediate data structures, and problem-solving skills. Should take 30-60 minutes to solve.
 Hard: Involves complex algorithms, advanced data structures, and optimization. Should take 1-2 hours to solve.
 
-
 CHALLENGE STRUCTURE:
 For each challenge, provide:
-
 Title: A clear, descriptive name
 Difficulty:
 Problem Statement: Clear description of the task
@@ -63,9 +61,7 @@ Output Format: Expected output format
 Constraints: Any limitations on input size, time complexity, or memory usage
 Example Test Cases: At least 3 examples with input and expected output
 
-
 QUALITY GUIDELINES:
-
 Make difficulty consistent within each category
 Include edge cases in test examples
 Avoid ambiguous requirements
@@ -77,13 +73,11 @@ The formatting needs to be python compatible.
 """
 
 content_prompt = f"""
-Your role is as follows:
 {role_prompt}
-
 
 For this exercise, can you provide me with a practice problem of {specified_difficulty} difficulty, on the topic of {specified_topic}.
 
-Make sure not to do a question I've already done: {existing_problems}
+Make sure not to do a question I've already done. Here is a list: {existing_problems}
 """
 
 
