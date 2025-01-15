@@ -35,9 +35,10 @@ Given an integer array `nums`, find the contiguous subarray within the array (co
    **Output:**  
    `24`  
    **Explanation:**  
-   The subarray `[3, -4]` has the largest product of 12, but the subarray `[-2, 3, -4]` has a product of 24 which is larger.
+   The subarray `[3]` has the largest product 
 
 **Edge Cases:**  
 - Input array containing only one element: e.g., `nums = [1]` should yield a product of `1`.
 - Input with all negative numbers: e.g., `nums = [-3, -1, -5, -10]` should yield the largest product as the largest negative number: `-1`. 
 - Input with zeros in the array: Handling zero values properly to examine the products without including them."""
+
