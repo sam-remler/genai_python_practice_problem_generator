@@ -34,23 +34,19 @@
 # Output: [7, 8, 9, 10, 11, 12, 13]
 ```"""
 
-def flatten_list(list_of_lists : list) -> list[int]:
-    while not all(type(element) == int for element in list_of_lists):
+def flatten(num_list : list) -> list:
+    while not all(type(element) == int for element in num_list):
         new_list = []
-        for element in list_of_lists:
-            if type(element) == list:
+        for element in num_list:
+            if type(element) == int: 
+                new_list.append(element)
+            elif type(element) == list: 
                 new_list.extend(element)
             else:
-                new_list.append(element)
-        list_of_lists = new_list
-    return list_of_lists
-
-
-test = [7, [8, 9], 10, [[11], 12], 13]
-test2 = [[1, 2], 3, [4, [5, [6]]]]
-
-print ( flatten_list ( test ) )
-print ( flatten_list ( test2 ) )
-
-    
+                raise ValueError("All elements must be integers")
+            
+        num_list = new_list.copy()
         
+    return new_list
+
+print ( flatten ([[1, 2], 3, [4, [5, [6]]]]) )
